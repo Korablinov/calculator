@@ -21,7 +21,7 @@ class CreatePdf
         int $creditAmount,
         int $monthlyPayment,
         int $mortgageTerm,
-        float   $percent,
+        float $percent,
         int $overpayment,
         string $randomString
     ) {
@@ -102,6 +102,6 @@ class CreatePdf
         $dompdf->render();
 
         $pdf = $dompdf->output();
-        file_put_contents(dirname(__DIR__,3) . '/temp/' . $randomString . '.pdf', $pdf);
+        file_put_contents(dirname(__DIR__, 3) . '/temp/' . $randomString . '.pdf', $pdf);
     }
 }

@@ -155,7 +155,7 @@ class Calculator extends Controller
         try {
             Excel::store(
                 new CreateXlsx($results, (int)round($monthlyPayment)),
-                '././temp/' .$randomString . '.xlsx'
+                '././temp/' . $randomString . '.xlsx'
             );
         } catch (Exception $e) {
             $logger->error('Не удалось создать файл xlsx ', ['xlsx_error' => $e->getMessage()]);

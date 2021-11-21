@@ -4,7 +4,7 @@ VALUES ('Альфа-Банк'),
        ('Генбанк'),
        ('РНКБ')
 ;
-INSERT INTO mortgages(bank_id, name, percent )
+INSERT INTO mortgages(bank_id, name, percent)
 VALUES (1, 'Новостройки', 5.99),
        (1, 'Вторичное жилье', 7.99),
        (1, 'Семейная ипотека', 4.99),

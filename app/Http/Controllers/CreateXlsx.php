@@ -21,7 +21,7 @@ class CreateXlsx implements FromView
     public function view(): View
     {
 
-        return view('createXlsx.blade', [
+        return view('createXlsx', [
             'results' => $this->result,
             'monthlyPayment' => $this->monthlyPayment
         ]);

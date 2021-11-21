@@ -3,13 +3,15 @@
     <tr>
         <th rowspan="2" style="text-align: center;">Месяц</th>
         <th colspan="3" style="text-align: center;">Платеж .руб</th>
-        <th  style="text-align: center;">Долг</th>
-        <th  style="text-align: center;">Проценты</th>
-        <th  style="text-align: center;">Всего</th>
-        <th style="text-align: center;">Остаток долга</th>
+        <th rowspan="2" style="text-align: center;">Остаток долга</th>
     </tr>
     </thead>
     <tbody>
+    <tr>
+        <th  style="text-align: center;">Долг</th>
+        <th  style="text-align: center;">Проценты</th>
+        <th  style="text-align: center;">Всего</th>
+    </tr>
     @foreach($results as $result)
         <tr>
             <td>{{ $result['month'] }}</td>

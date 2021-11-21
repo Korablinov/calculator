@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -156,7 +155,7 @@ class Calculator extends Controller
         try {
             Excel::store(
                 new CreateXlsx($results, (int)round($monthlyPayment)),
-                 $randomString . '.xlsx'
+                '././temp/' .$randomString . '.xlsx'
             );
         } catch (Exception $e) {
             $logger->error('Не удалось создать файл xlsx ', ['xlsx_error' => $e->getMessage()]);
@@ -208,7 +207,7 @@ class Calculator extends Controller
         $randomString = (string)$request->input('randomString');
         $filename = "$randomString.xlsx";
         $pathToFile = dirname(__DIR__, 3) .
-            '/storage/app/' . $filename;
+            '/storage/app/temp/' . $filename;
         $file = '';
 
         try {

@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -22,7 +21,7 @@ class CreatePdf
         int $creditAmount,
         int $monthlyPayment,
         int $mortgageTerm,
-        float $percent,
+        float   $percent,
         int $overpayment,
         string $randomString
     ) {
@@ -58,11 +57,11 @@ class CreatePdf
 <body>
 <div style='width: 100%; max-width: 960px; margin: auto'>
     <h1>Расчёты:<br>
-    <h1>Сумма ипотеки: $creditAmount<br>
-    <h1>Ежемесячный платеж: $monthlyPayment <br>
-    <h1>Срок: $mortgageTerm мес. <br>
-    <h1>Ставка: $percent % <br>
-    <h1>Переплата: $overpayment руб.</h1>
+        Сумма ипотеки: $creditAmount<br>
+        Ежемесячный платеж: $monthlyPayment <br>
+        Срок: $mortgageTerm мес. <br>
+        Ставка: $percent % <br>
+        Переплата: $overpayment руб.</h1>
         <table class='table'>
             <thead>
             <tr>
@@ -81,7 +80,6 @@ class CreatePdf
             $month = $result['month'];
             $mainPart = $result['mainPart'];
             $percentage = $result['percentage'];
-            $monthlyPayment = $result['monthlyPayment'];
             $balanceOwed = $result['balanceOwed'];
             $html .= "<tr>
             <td> $month</td>
@@ -104,6 +102,6 @@ class CreatePdf
         $dompdf->render();
 
         $pdf = $dompdf->output();
-        file_put_contents(dirname(__DIR__) . '/temp/' . $randomString . '.pdf', $pdf);
+        file_put_contents(dirname(__DIR__,3) . '/temp/' . $randomString . '.pdf', $pdf);
     }
 }

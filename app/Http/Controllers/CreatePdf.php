@@ -57,8 +57,8 @@ class CreatePdf
 <body>
 <div style='width: 100%; max-width: 960px; margin: auto'>
     <h1>Расчёты:<br>
-        Сумма ипотеки: $creditAmount<br>
-        Ежемесячный платеж: $monthlyPayment <br>
+        Сумма ипотеки: $creditAmount руб <br>
+        Ежемесячный платеж: $monthlyPayment руб <br>
         Срок: $mortgageTerm мес. <br>
         Ставка: $percent % <br>
         Переплата: $overpayment руб.</h1>
@@ -69,32 +69,31 @@ class CreatePdf
                 <th colspan='3' style='text-align: center;'>Платеж .руб</th>
                 <th rowspan='2' style='text-align: center;'>Остаток долга</th>
             </tr>
-            </thead>
-            <tbody>
             <tr>
                 <th  style='text-align: center;'>Долг</th>
                 <th  style='text-align: center;'>Проценты</th>
                 <th  style='text-align: center;'>Всего</th>
-            </tr>";
+            </tr>
+            </thead>
+            <tbody>";
         foreach ($results as $result) {
             $month = $result['month'];
             $mainPart = $result['mainPart'];
             $percentage = $result['percentage'];
             $balanceOwed = $result['balanceOwed'];
             $html .= "<tr>
-            <td> $month</td>
-            <td> $mainPart</td>
-            <td> $percentage</td>
-            <td> $monthlyPayment</td>
-            <td> $balanceOwed</td>
+            <td style='text-align: center'> $month</td>
+            <td style='text-align: center'> $mainPart</td>
+            <td style='text-align: center'> $percentage</td>
+            <td style='text-align: center'> $monthlyPayment</td>
+            <td style='text-align: center'> $balanceOwed</td>
             </tr>";
         }
         $html .= "</tbody>
         </table>
 </div>
 </body>
-</html>
-";
+</html>";
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html, 'UTF-8');
